@@ -5,6 +5,7 @@ author: "Mine Cetinkaya-Rundel and colleagues"
 output: 
   html_document: 
     self_contained: no
+    fig_height: 7
   tufte::tufte_html:
     tufte_variant: "envisioned"
     highlight: pygments
@@ -72,6 +73,7 @@ The correlation coefficient between x and y is -0.0629611.
 The correlation coefficient is also very small, compared with that of the dino_data. It tells that there is weak linear relationship between x and y.
 
 ```{r}
+
 circle_data = datasaurus_dozen %>%
   filter(dataset == "circle")
 
@@ -85,7 +87,9 @@ circle_data %>%
 The correlation coefficient between x and y is -0.06834336.
 The correlation coefficient is also very small, compared with that of the dino_data and star_data. It tells that there is weak linear relationship between x and y.
 
+
 ```{r}
+
 ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
   geom_point()+
   facet_wrap(~ dataset, ncol = 3) +
