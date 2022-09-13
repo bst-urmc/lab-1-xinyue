@@ -25,8 +25,8 @@ options(
 
 
 ```{r}
-#library(tidyverse)
-#library(datasauRus)
+library(tidyverse)
+library(datasauRus)
 ?datasaurus_dozen
 colnames(datasaurus_dozen)
 ```
@@ -49,29 +49,27 @@ dino_data = datasaurus_dozen %>%
 ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
-```{r}
-cor(dino_data$x,dino_data$y)
-
-```
-The correlation coefficient is -0.06447185.
-
 
 
 ```{r}
 dino_data %>%
   summarize(r = cor(x, y))
 ```
+The correlation coefficient is -0.06447185.
 
+```{r}
+star_data = datasaurus_dozen %>%
+  filter(dataset == "star")
 
-
-
-
-```{r all-viz, eval=FALSE, fig.fullwidth=TRUE}
-ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
-  geom_point()+
-  facet_wrap(~ dataset, ncol = 3) +
-  theme(legend.position = "none")
+ggplot(data = star_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 ```
+```{r}
+star_data %>%
+  summarize(r = cor(x, y))
+```
+The correlation coefficient between x and y is -0.0629611.
+The correlation coefficient is also very small, compared with that of the dino_data. It tells that there is weak linear relationship between x and y.
 
 
 ```{r all-r, eval=FALSE}
