@@ -1,7 +1,7 @@
 ---
 title: "Lab 01 - Hello R!"
-date: "2018-01-18 (updated `r Sys.Date()` by TL)"
-author: "Mine Cetinkaya-Rundel and colleagues"
+date: "2022-09-13"
+author: "Xinyue Mao"
 output: 
   html_document: 
     self_contained: no
