@@ -236,10 +236,22 @@ ggplot(data = star_data, mapping = aes(x = x, y = y)) +
 correlation coefficient is also very small, compared with that of the
 dino_data. It tells that there is weak linear relationship between x and
 y.</p>
-<pre class="r"><code>datasaurus_dozen %&gt;%
-  group_by(dataset) %&gt;%
-  summarize(r = cor(x, y)) %&gt;%
-  print(13)</code></pre>
+<pre class="r"><code>circle_data = datasaurus_dozen %&gt;%
+  filter(dataset == &quot;circle&quot;)
+
+ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
+  geom_point()</code></pre>
+<p><img src="lab01-hello-r_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>circle_data %&gt;%
+  summarize(r = cor(x, y))</code></pre>
+<pre><code>## # A tibble: 1 × 1
+##         r
+##     &lt;dbl&gt;
+## 1 -0.0683</code></pre>
+<p>The correlation coefficient between x and y is -0.06834336. The
+correlation coefficient is also very small, compared with that of the
+dino_data and star_data. It tells that there is weak linear relationship
+between x and y.</p>
 
 
 

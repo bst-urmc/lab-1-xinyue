@@ -71,11 +71,18 @@ star_data %>%
 The correlation coefficient between x and y is -0.0629611.
 The correlation coefficient is also very small, compared with that of the dino_data. It tells that there is weak linear relationship between x and y.
 
+```{r}
+circle_data = datasaurus_dozen %>%
+  filter(dataset == "circle")
 
-```{r all-r, eval=FALSE}
-datasaurus_dozen %>%
-  group_by(dataset) %>%
-  summarize(r = cor(x, y)) %>%
-  print(13)
+ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 ```
+```{r}
+circle_data %>%
+  summarize(r = cor(x, y))
+```
+The correlation coefficient between x and y is -0.06834336.
+The correlation coefficient is also very small, compared with that of the dino_data and star_data. It tells that there is weak linear relationship between x and y.
+
 
