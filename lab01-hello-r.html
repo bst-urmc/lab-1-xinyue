@@ -252,6 +252,36 @@ ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
 correlation coefficient is also very small, compared with that of the
 dino_data and star_data. It tells that there is weak linear relationship
 between x and y.</p>
+<pre class="r"><code>ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
+  geom_point()+
+  facet_wrap(~ dataset, ncol = 3) +
+  theme(legend.position = &quot;none&quot;)</code></pre>
+<p><img src="lab01-hello-r_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<pre class="r"><code>datasaurus_dozen %&gt;%
+  group_by(dataset) %&gt;%
+  summarize(r = cor(x, y)) %&gt;%
+  print(13)</code></pre>
+<pre><code>## # A tibble:
+## #   13 × 2
+##    dataset   
+##    &lt;chr&gt;     
+##  1 away      
+##  2 bullseye  
+##  3 circle    
+##  4 dino      
+##  5 dots      
+##  6 h_lines   
+##  7 high_lines
+##  8 slant_down
+##  9 slant_up  
+## 10 star      
+## 11 v_lines   
+## 12 wide_lines
+## 13 x_shape   
+## # … with 1
+## #   more
+## #   variable:
+## #   r &lt;dbl&gt;</code></pre>
 
 
 
